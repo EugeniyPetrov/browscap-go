@@ -3,7 +3,7 @@
 This is a Go version of a library that matches user agents against the [Browscap](https://browscap.org/) database. It
 uses a radix tree and backtracking to find the most specific pattern for a given user agent. The search index is
 completely stored in memory. Once initialized, the full Browscap database requires about 20MB of RAM; however, during
-initialization, it may require up to 200MB of RAM.
+initialization, it may require up to 170MB of RAM.
 
 For browser data, it requires an external storage, which is currently implemented using SQLite, MySQL, or PostgreSQL.
 

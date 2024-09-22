@@ -200,5 +200,8 @@ func (l *Loader) Load() (*Browscap, error) {
 		tree.Add(pattern)
 	}
 
+	// convert to Directed Acyclic Word Graph, this significantly reduces memory usage
+	tree = tree.ToDAWG()
+
 	return NewBrowscap(tree, l.browserStorage), nil
 }
