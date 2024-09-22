@@ -22,18 +22,18 @@ func (p Patterns) Swap(i, j int) {
 }
 
 func (p Patterns) Less(i, j int) bool {
-	len1 := len(p[i])
-	len2 := len(p[j])
-
-	if len1 != len2 {
-		return len1 > len2
-	}
-
 	pLen1 := patternLen(p[i])
 	pLen2 := patternLen(p[j])
 
 	if pLen1 != pLen2 {
 		return pLen1 > pLen2
+	}
+
+	len1 := len(p[i])
+	len2 := len(p[j])
+
+	if len1 != len2 {
+		return len1 > len2
 	}
 
 	return p[i] > p[j]
