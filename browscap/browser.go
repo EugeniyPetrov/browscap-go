@@ -111,6 +111,10 @@ func String(v *string) string {
 	return *v
 }
 
+func StringPtr(v string) *string {
+	return &v
+}
+
 func Int(v *int) int {
 	if v == nil {
 		return 0
@@ -118,11 +122,19 @@ func Int(v *int) int {
 	return *v
 }
 
+func IntPtr(v int) *int {
+	return &v
+}
+
 func Bool(v *bool) bool {
 	if v == nil {
 		return false
 	}
 	return *v
+}
+
+func BoolPtr(v bool) *bool {
+	return &v
 }
 
 func (n *BrowserNode) ToBrowser() *Browser {

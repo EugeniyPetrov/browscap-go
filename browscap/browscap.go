@@ -10,6 +10,56 @@ import (
 
 const DefaultPatternName = "defaultproperties"
 
+var DefaultBrowser = &BrowserNode{
+	Comment:                    StringPtr("Default Browser"),
+	Browser:                    StringPtr("Default Browser"),
+	BrowserType:                StringPtr("unknown"),
+	BrowserBits:                IntPtr(0),
+	BrowserMaker:               StringPtr("unknown"),
+	BrowserModus:               StringPtr("unknown"),
+	Version:                    StringPtr("0.0"),
+	MajorVer:                   StringPtr("0"),
+	MinorVer:                   StringPtr("0"),
+	Platform:                   StringPtr("unknown"),
+	PlatformVersion:            StringPtr("unknown"),
+	PlatformDescription:        StringPtr("unknown"),
+	PlatformBits:               IntPtr(0),
+	PlatformMaker:              StringPtr("unknown"),
+	Alpha:                      BoolPtr(false),
+	Beta:                       BoolPtr(false),
+	Win16:                      BoolPtr(false),
+	Win32:                      BoolPtr(false),
+	Win64:                      BoolPtr(false),
+	Frames:                     BoolPtr(false),
+	Iframes:                    BoolPtr(false),
+	Tables:                     BoolPtr(false),
+	Cookies:                    BoolPtr(false),
+	BackgroundSounds:           BoolPtr(false),
+	Javascript:                 BoolPtr(false),
+	VBScript:                   BoolPtr(false),
+	JavaApplets:                BoolPtr(false),
+	ActiveXControls:            BoolPtr(false),
+	IsMobileDevice:             BoolPtr(false),
+	IsTablet:                   BoolPtr(false),
+	IsSyndicationReader:        BoolPtr(false),
+	Crawler:                    BoolPtr(false),
+	IsFake:                     BoolPtr(false),
+	IsAnonymized:               BoolPtr(false),
+	IsModified:                 BoolPtr(false),
+	CSSVersion:                 IntPtr(0),
+	AolVersion:                 IntPtr(0),
+	DeviceName:                 StringPtr("unknown"),
+	DeviceMaker:                StringPtr("unknown"),
+	DeviceType:                 StringPtr("unknown"),
+	DevicePointingMethod:       StringPtr("unknown"),
+	DeviceCodeName:             StringPtr("unknown"),
+	DeviceBrandName:            StringPtr("unknown"),
+	RenderingEngineName:        StringPtr("unknown"),
+	RenderingEngineVersion:     StringPtr("unknown"),
+	RenderingEngineDescription: StringPtr("unknown"),
+	RenderingEngineMaker:       StringPtr("unknown"),
+}
+
 var ErrNotFound = fmt.Errorf("browser not found")
 
 type Browscap struct {
@@ -66,6 +116,8 @@ func (b *Browscap) loadBrowserRecursive(pattern string) (*Browser, error) {
 
 		pattern = browser.Parent
 	}
+
+	b.mergeBrowsers(DefaultBrowser, res)
 
 	return res.ToBrowser(), nil
 }
