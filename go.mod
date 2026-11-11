@@ -4,7 +4,7 @@ go 1.23.0
 
 require (
 	github.com/eugeniypetrov/ini-reader v0.1.1
-	github.com/eugeniypetrov/radix-tree v0.1.1
+	github.com/eugeniypetrov/radix-tree v0.1.2
 )
 
 require (
